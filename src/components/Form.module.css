@@ -1,0 +1,12 @@
+.guestForm {
+    background-color: #FFDCDC;
+    padding: 1rem;
+    border-radius: 1rem;
+    min-width: 10rem;
+    margin-bottom: 2rem;
+}
+
+.formWrapper {
+    margin-top: 1.5rem;
+}
+
