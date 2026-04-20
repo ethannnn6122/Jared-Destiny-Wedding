@@ -10,7 +10,7 @@ class RsvpContainer extends Component {
     render() {
         return(
             <>
-                <Card bordered={false}>
+                <Card variant='borderless'>
                     <div className={classes.titleWrapper}>
                         <h5>RSVP</h5>
                         <p className={classes.subText}>Check out the details page to see the menu options.</p>
