@@ -3,230 +3,178 @@ import { Form, Input, Button, Space, Select, Radio } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import classes from './Form.module.css';
-import {useNavigate} from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 import ModalCustom from './ModalCustom';
 
 const RSVPForm = () => {
     const [form] = Form.useForm();
-    const [values, setValues] = useState(
-        {
-            currentDate: Date().toLocaleString()
-        });
-    // vis only affects the add guest button
-    const [vis, setVis] = useState(true);
-    const [attendField, setField] = useState(false);
-    const [submitVis, setSubmitVis] = useState(true);
-    const [req, setReq] = useState(true);
+    const navigate = useNavigate();
 
-    // Modal State
+    // Modal & Loading State
     const [modalVis, setModalVis] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const [modalText, setModalText] = useState('Thank You!');
+    const [attendField, setField] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
 
-    // Error State
-    const [error, setError] = useState(false);
-
-    const navigate = useNavigate();
-    
-    const toggleModal = () => {
-        setModalVis(!modalVis);
-    }
+    const toggleModal = () => setModalVis(!modalVis);
 
     const handleOk = () => {
         setModalText('You will now be redirected to the home page.');
         setConfirmLoading(true);
         setTimeout(() => {
-            navigate("/", {replace: true})
+            navigate("/", { replace: true });
             setModalVis(false);
             setConfirmLoading(false);
         }, 2000);
-      };
-    
-    const handleCancel = () => {
-        console.log('Clicked cancel button');
-        setModalVis(false);
     };
 
-    const onSubmit = (data) => {
+    const onSubmit = async (formData) => {
+        setSubmitting(true);
         try {
-            if (error === false) {
-                console.log("Success:", data);
-                console.log('Value State:', values);
-                axios.post('https://sheet.best/api/sheets/NEW_KEY', values)
-                .then(response => {
-                    console.log(response.data);
-                    toggleModal();
-                })   
-            } 
-        } catch (errorInfo) {
-            console.log('Failed:', errorInfo);
+            // Combine form data with the current date before sending
+            const payload = {
+                ...formData,
+                currentDate: new Date().toLocaleString(),
+            };
+
+            console.log("Submitting Payload:", payload);
+
+            const GOOGLE_SCRIPT_URL = import.meta.env.VITE_API_WEBAPP_URL;
+
+            const response = await axios.post(GOOGLE_SCRIPT_URL, JSON.stringify(payload), {
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8',
+                },
+            });
+
+            if (response.data.result === 'success') {
+                setModalText("We've received your RSVP. We can't wait to see you!");
+                toggleModal();
+            } else {
+                console.error("Script Error:", response.data.error);
+            }
+        } catch (err) {
+            console.error('Submission Failed:', err);
+            setModalText("Something went wrong. Please try again or contact us directly.");
+            toggleModal();
+        } finally {
+            setSubmitting(false); // Stop loading regardless of success/fail
         }
     };
-
-    const isEmailValid = (email) => {
-        return /\S+@\S+\.\S+/.test(email);
-    }
-
-    const emailChange = (e) => {
-        console.log(isEmailValid(e.target.value));
-        e.preventDefault();
-        const value = e.target.value;
-        setValues({
-            ...values,
-            [e.target.name]: value,
-        });
-        if (!isEmailValid(e.target.value)) {
-            setError(true);
-        } else {
-            setError(false);
-        }
-        isRequired();
-    }
-
-    const valueChange = (e) => {
-        e.preventDefault();
-        const value = e.target.value;
-        setValues({
-            ...values,
-            [e.target.name]: value,
-        });
-        isRequired();
-    }
-
-    const isRequired = () => {
-        if (attendField === false) {
-           return setReq(true);
-        } else {
-           return setReq(false);
-        }
-    }
-
-    const fields = 
-        <>
-            <Form.List name="inputs">
-                {(fields, { add, remove}) => (
-                <>
-                    {fields.map(({ key, name, ...restField }) => (
-                    <Space key={key} className={classes.guestForm} align="baseline" wrap>
-                        <MinusCircleOutlined onClick={() => remove(name)} />
-                        <Form.Item
-                        {...restField}
-                        label="First Name"
-                        name={[name, 'first']}
-                        rules={[{ required: true, message: 'Missing first name' }]}
-                        >
-                            <Input name={[name, "first"]} placeholder="First Name" value={values.first} onChange={valueChange}/>
-                        </Form.Item>
-                        <Form.Item
-                        // {...innerLayout}
-                        {...restField}
-                        label="Last Name"
-                        name={[name, 'last']}
-                        rules={[{ required: true, message: 'Missing last name' }]}
-                        >
-                            <Input name={[name, 'last']} placeholder="Last Name" value={values.last} onChange={valueChange} />
-                        </Form.Item>
-                        {/* NEW MEAL SELECTION */}
-                        <Form.Item 
-                            {...restField}
-                            label="Preferred Meal"
-                            name={[name, 'meal']}
-                            rules={[{required: req, message: 'Missing Meal Selection'}]}
-                        >
-                            <Radio.Group
-                                name={[name, 'meal']}
-                                disabled={attendField}
-                                value={values.meal}
-                                onChange={valueChange}
-                            >
-                                <Space direction='vertical'>
-                                    <Radio value="Chicken">Chicken</Radio>
-                                    <Radio value="Steak">Steak</Radio>
-                                    <Radio value="Vegetarian">Vegetarian</Radio>
-                                </Space>
-                            </Radio.Group>
-                        </Form.Item>
-                        <Form.Item label="Allergies"
-                                {...restField}
-                                name={[name, 'allergies']}>
-                            <Input.TextArea disabled={attendField} onChange={valueChange} name={[name, 'allergies']} value={values.allergies} placeholder='List any allergies here'/>
-                        </Form.Item>
-                    </Space>   
-                    ))}
-                    <Form.Item>
-                        {fields.map((obj) => (
-                            obj.name >= 3 ? setVis(true) : setVis(false)
-                        ))}
-                        <Button disabled={vis} type="dashed" onClick={() => {
-                            setSubmitVis(false);
-                            add();
-                        }} icon={<PlusOutlined />}>
-                            Add Guest
-                        </Button>
-                    </Form.Item> 
-                </>
-                )}
-            </Form.List>
-        </>
 
     const onAttenChange = (value) => {
-        switch (value) {
-          case 'yes':
-            setField(false);
-            setVis(false);
-            setValues({
-                ...values,
-                attendance: value
-            });
-            break;
-    
-          case 'no':
-            setField(true);
-            setVis(false);
-            setValues({
-                ...values,
-                attendance: value,
-            });
-            break;
+        setField(value === 'no');
+    };
 
-          default:
-            setField(null);
-            setVis(null);
-            setValues({...values});
-        }
-    }
-      
-  return (
-    <Form className={classes.formWrapper} form={form} name="dynamic_rule" layout='vertical' onFinish={onSubmit}>
-        <Form.Item
-            label="Attending?"
-            name="attendance"
-            rules={[{ required: true, message: 'Missing attendance' }]}
+    return (
+        <Form
+            className={classes.formWrapper}
+            form={form}
+            name="rsvp_form"
+            layout='vertical'
+            onFinish={onSubmit}
+            // Initialize the form with one guest field automatically if you want
+            initialValues={{ inputs: [{}] }}
         >
-            <Select value={values.attendance} placeholder="Select Yes or No" onChange={onAttenChange}>
-                <Select.Option value="yes">Yes</Select.Option>
-                <Select.Option value="no">No</Select.Option>
-            </Select>
-        </Form.Item>
-        <Form.Item
-            label="Contact Email"
-            name="email"
-            rules={[{ required: true}]}>
-            <Input onChange={emailChange} name={"contactEmail"} value={values.contactEmail} placeholder='Type a contact Email address for your RSVP.'/>
-        </Form.Item>
-            {error && <h3 style={{color: 'red'}}>{"Invalid Email"}</h3>}
-            {fields}
-        <Form.Item>
-            <Button disabled={submitVis} type="primary" htmlType="submit">
-                Submit
-            </Button>
-            <ModalCustom isOpen={modalVis} toggle={toggleModal}
-                         confirmLoading={confirmLoading} modalText={modalText}
-                         handleOk={handleOk} handleCancel={handleCancel}
-            />
-        </Form.Item>       
-    </Form>
+            <Form.Item
+                label="Attending?"
+                name="attendance"
+                rules={[{ required: true, message: 'Missing attendance' }]}
+            >
+                <Select placeholder="Select Yes or No" onChange={onAttenChange}>
+                    <Select.Option value="yes">Yes</Select.Option>
+                    <Select.Option value="no">No</Select.Option>
+                </Select>
+            </Form.Item>
+
+            <Form.Item
+                label="Contact Email"
+                name="email"
+                rules={[
+                    { required: true, message: 'Please input your email!' },
+                    { type: 'email', message: 'Invalid email address' }
+                ]}
+            >
+                <Input placeholder='Type a contact email address.' />
+            </Form.Item>
+
+            <Form.List name="inputs">
+                {(fields, { add, remove }) => (
+                    <>
+                        {fields.map(({ key, name, ...restField }) => (
+                            <Space key={key} className={classes.guestForm} align="baseline" wrap>
+                                <MinusCircleOutlined onClick={() => remove(name)} />
+                                <Form.Item
+                                    {...restField}
+                                    label="First Name"
+                                    name={[name, 'first']}
+                                    rules={[{ required: true, message: 'Missing first name' }]}
+                                >
+                                    <Input placeholder="First Name" />
+                                </Form.Item>
+                                <Form.Item
+                                    {...restField}
+                                    label="Last Name"
+                                    name={[name, 'last']}
+                                    rules={[{ required: true, message: 'Missing last name' }]}
+                                >
+                                    <Input placeholder="Last Name" />
+                                </Form.Item>
+                                
+                                <Form.Item
+                                    {...restField}
+                                    label="Preferred Meal"
+                                    name={[name, 'meal']}
+                                    rules={[{ required: !attendField, message: 'Missing Meal Selection' }]}
+                                >
+                                    <Radio.Group disabled={attendField}>
+                                        <Space vertical>
+                                            <Radio value="Chicken">Chicken</Radio>
+                                            <Radio value="Steak">Steak</Radio>
+                                            <Radio value="Vegetarian">Vegetarian</Radio>
+                                        </Space>
+                                    </Radio.Group>
+                                </Form.Item>
+
+                                <Form.Item 
+                                    label="Allergies" 
+                                    {...restField} 
+                                    name={[name, 'allergies']}
+                                >
+                                    <Input.TextArea disabled={attendField} placeholder='List any allergies here' />
+                                </Form.Item>
+                            </Space>
+                        ))}
+
+                        <Form.Item>
+                            <Button
+                                disabled={fields.length >= 3}
+                                type="dashed"
+                                onClick={() => add()}
+                                icon={<PlusOutlined />}
+                            >
+                                Add Guest
+                            </Button>
+                        </Form.Item>
+                    </>
+                )}
+            </Form.List>
+
+            <Form.Item>
+                <Button type="primary" htmlType="submit" loading={submitting}>
+                    Submit RSVP
+                </Button>
+                <ModalCustom
+                    isOpen={modalVis}
+                    toggle={toggleModal}
+                    confirmLoading={confirmLoading}
+                    modalText={modalText}
+                    handleOk={handleOk}
+                    handleCancel={() => setModalVis(false)}
+                />
+            </Form.Item>
+        </Form>
     );
 };
 

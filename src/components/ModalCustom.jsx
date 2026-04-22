@@ -1,27 +1,23 @@
 import { Modal, Button } from 'antd';
 import React from 'react';
 
-const ModalCustom = (props) => {
-
+const ModalCustom = ({ isOpen, toggle, handleOk, confirmLoading, modalText }) => {
     return (
-		<>
-			<Modal
-				onClick={props.toggle}
-				title="RSVP Confirmation"
-				visible={props.isOpen}
-				onOk={props.handleOk}
-				confirmLoading={props.confirmLoading}
-				onCancel={props.toggle}
-				footer={[
-					<Button key="back" onClick={props.handleOk}>
-					  Return Home
-					</Button>
-				  ]}
-			>
-				<p>{props.modalText}</p>
-			</Modal>
-		</>
-	);
+        <Modal
+            title="RSVP Confirmation"
+            open={isOpen} 
+            onOk={handleOk}
+            confirmLoading={confirmLoading}
+            onCancel={toggle}
+            footer={[
+                <Button key="back" type="primary" onClick={handleOk}>
+                    Return Home
+                </Button>
+            ]}
+        >
+            <p>{modalText}</p>
+        </Modal>
+    );
 };
 
 export default ModalCustom;

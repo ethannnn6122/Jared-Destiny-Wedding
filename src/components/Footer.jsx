@@ -10,7 +10,10 @@ const FooterComp = () => {
             background: "#FFDCDC", 
             fontFamily: "Josefin Sans, sans-serif",
         }}>
-            Jared & Destiny's Wedding | A Mile High Coding Website
+            Jared & Destiny's Wedding | &copy; 2026 | Designed and Developed by&nbsp;
+            <a href="https://milehighcoding.com" target="_blank" rel="noopener noreferrer">
+                Mile High Coding 
+            </a>
         </Footer>
         
     )

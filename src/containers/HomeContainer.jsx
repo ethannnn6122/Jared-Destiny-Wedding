@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel, Button } from 'antd';
+import { Carousel, Button, Card, Row } from 'antd';
 import { Link } from 'react-router-dom';
 
 import classes from './HomeContainer.module.css';
@@ -53,8 +53,8 @@ const HomeContainer = () => {
     ];
 
     return (
-        <div className={classes.carouselContainer}>
-            <Carousel autoplay effect='fade'>
+        <div>
+            <Carousel className={classes.carouselContainer} autoplay effect='fade'>
                 {slides.map((item) => (
                     <div 
                         key={item.slideClass} 
@@ -76,6 +76,23 @@ const HomeContainer = () => {
                     </div>
                 ))}
             </Carousel>
+            <Row gutter={16} className={classes.cardsContainer}>
+                <Card title="Default size card" extra={<a href="#">More</a>} style={{ width: 300 }}>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                </Card>
+                <Card title="Default size card" extra={<a href="#">More</a>} style={{ width: 300 }}>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                </Card>
+                <Card title="Default size card" extra={<a href="#">More</a>} style={{ width: 300 }}>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                    <p>Card content</p>
+                </Card>
+            </Row>
         </div>
     );
 };

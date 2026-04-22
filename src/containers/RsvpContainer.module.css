@@ -4,10 +4,33 @@
     min-width: 10rem;
     color: #000054;
     margin: auto;
-    width: 50%;
+    width: 80%;
     border: 0.25rem solid #000054;
     border-radius: 2rem;
     padding-bottom: 1rem;
+    background-image: url("https://images.unsplash.com/photo-1519741497674-611481863552");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 3rem 1rem;
+}
+
+.titleWrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 1.75rem;
+    z-index: 0;
+}
+
+.titleWrapper > * {
+    position: relative;
+    z-index: 1;
 }
 
 .subText {
@@ -30,6 +53,23 @@
 }
 
 @media only screen and (max-width: 580px) {
+    .titleWrapper {
+        width: 100%;
+        font-size: 2rem;
+        padding: 2rem 1rem;
+        border-radius: 1rem;
+        margin: 1rem auto;
+    }
+
+    .titleWrapper::before {
+        border-radius: 0.75rem;
+    }
+
+    .subText {
+        font-size: 1rem;
+        margin: 0.75rem;
+    }
+
     .btnClass {
         font-size: 1.5rem;
         width: 8rem;

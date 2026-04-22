@@ -1,6 +1,6 @@
 .bannerImg {
     height: 45vh;
-    background-image: url("../images/detailsImg.jpg");
+    background-image: url("https://images.unsplash.com/photo-1519225421980-715cb0215aed");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -8,12 +8,26 @@
     color: #000054;
     text-shadow: 2px 2px 4px #DECB85;
     font-family: 'Mea Culpa', cursive;
-    padding: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .dateTime {
     font-size: 2rem;
     padding-left: 1rem;
+}
+
+.listItemStyles {
+    padding: 0.5rem 8rem 0.5rem 0rem;
+    line-height: 1.6;
+}
+
+@media only screen and (max-width: 768px) {
+    .listItemStyles {
+        padding: 0;
+    }
 }
 
 @media only screen and (max-width: 1400px) {

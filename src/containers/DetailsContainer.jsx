@@ -50,7 +50,7 @@ class DetailsContainer extends Component {
                                     children: (
                                         <Flex vertical gap="middle">
                                             {item.listItems.map((listItem, index) => (
-                                                <div key={index} className='list-item-styles'>
+                                                <div key={index} className={classes.listItemStyles}>
                                                     {listItem}
                                                 </div>
                                             ))}
