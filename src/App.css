@@ -10,8 +10,8 @@ h1, h2, h3, h4, h5, h6 {
 .ant-menu-item-selected,
 .ant-menu-item-selected a,
 .ant-menu-item-selected a:hover {
-  background-color: #FFDCDC !important;
-  color: #000054 !important;
+  background-color: #C4C5A0 !important;
+  color: #75763E !important;
 }
 
 .ant-menu-item a {
@@ -23,11 +23,11 @@ h1, h2, h3, h4, h5, h6 {
   color: #000054 !important;
 }
 
-.ant-menu-inline,
+/* .ant-menu-inline,
 .ant-menu-vertical,
 .ant-menu-item:after {
   border-right: 3px solid #7A0D17 !important;
-}
+} */
 
 .ant-btn-ghost {
   border-color: #000054 !important;

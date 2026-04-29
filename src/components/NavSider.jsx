@@ -12,7 +12,6 @@ import {
 
 const { Sider } = Layout;
 
-// Refactored to match Ant Design's expected ItemType object format
 const menuItems = [
   {
     label: <Link to="/">Home</Link>,

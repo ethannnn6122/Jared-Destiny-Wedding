@@ -7,7 +7,7 @@ const FooterComp = () => {
     return(
         <Footer style={{
             textAlign: "center", 
-            background: "#FFDCDC", 
+            background: "#C4C5A0", 
             fontFamily: "Josefin Sans, sans-serif",
         }}>
             Jared & Destiny's Wedding | &copy; 2026 | Designed and Developed by&nbsp;

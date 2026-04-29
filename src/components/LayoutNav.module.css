@@ -7,12 +7,11 @@
 }
 
 .trigger:hover {
-    color: #7A0D17;
+    color: #580410;
 }
 
 .siteLayoutBackground {
-    /* position: relative; */
-    background: #FFDCDC;
+    background: #C4C5A0;
     padding-left: 1rem;
 }
 

@@ -7,7 +7,7 @@
 }
 
 .textOverlay {
-    height: 65vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,111 +19,42 @@
     right: 0;
     bottom: 0;
     z-index: 1;
+    padding: 1.5rem;
+    overflow: hidden;
+}
+
+.slideOne,
+.slideTwo,
+.slideThree,
+.slideFour {
+    height: clamp(45vh, 65vh, 100vh);
+    font-size: 3rem;
+    font-family: 'Mea Culpa', cursive;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
 }
 
 .slideOne {
-    height: 65vh;
-    font-size: 3rem;
-    font-family: 'Mea Culpa', cursive; 
-    background-image: url("https://images.unsplash.com/photo-1519225421980-715cb0215aed");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-}
-
-.slideOne::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.15);
-    z-index: 0;
+    background-image: url('../assets/SlideOne.jpg');
 }
 
 .slideTwo {
-    height: 65vh;
-    font-size: 3rem;
-    font-family: 'Mea Culpa', cursive; 
-    background-image: url("https://images.unsplash.com/photo-1519741497674-611481863552");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-}
-
-.slideTwo::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.15);
-    z-index: 0;
+    background-image: url('../assets/SlideTwo.jpg');
 }
 
 .slideThree {
-    height: 65vh;
-    font-size: 3rem;
-    font-family: 'Mea Culpa', cursive; 
-    background-image: url("https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-}
-
-.slideThree::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.15);
-    z-index: 0;
+    background-image: url('../assets/SlideThree.jpg');
 }
 
 .slideFour {
-    height: 65vh;
-    font-size: 3rem;
-    font-family: 'Mea Culpa', cursive;
-    background-image: url("https://images.unsplash.com/photo-1510076857177-7470076d4098");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
+    background-image: url('../assets/SlideFour.jpg');
 }
 
-.slideFour::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.15);
-    z-index: 0;
-}
-
-.cardsContainer {
-    display: flex;
-    justify-content: center;
-    padding: 2rem 1rem;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-@media only screen and (max-width: 768px) {
-    .cardsContainer {
-        padding: 1rem;
-        gap: 0.5rem;
-    }
-}
-
+.slideOne::before,
+.slideTwo::before,
+.slideThree::before,
 .slideFour::before {
     content: '';
     position: absolute;
@@ -136,39 +67,35 @@
 }
 
 .heading {
-    font-size: clamp(3rem, 8vw, 7rem);
-    margin: 0 0 1rem 0;
+    font-size: clamp(1.75rem, 5vw, 4rem);
+    margin: 0.5rem 0;
     letter-spacing: 2px;
-    color: #000054;
+    color: #390000;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .btn {
-    color: #000054;
-    font-size: clamp(1rem, 1.75vw, 1.75rem);
+    color: #390000;
+    font-size: clamp(0.9rem, 1.5vw, 1.5rem);
     font-family: 'Josefin Sans', sans-serif;
     text-shadow: 2px 2px 4px #DECB85;
-    margin: 1rem auto;
+    margin: 0.5rem auto;
+    padding: 0.5rem 1rem;
     display: inline-block !important;
-    border: 2px solid #000054 !important;
+    border: 2px solid #390000 !important;
     background-color: rgba(255, 255, 255, 0.85) !important;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .subTitle {
     font-family: 'Josefin Sans', sans-serif;
-    padding: 0.5rem;
-    color: #000054;
-    font-size: clamp(1.2rem, 2.5vw, 2.5rem);
+    padding: 0.25rem 0.5rem;
+    color: #390000;
+    font-size: clamp(1rem, 2vw, 1.75rem);
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-    margin: 0.5rem auto;
-    max-width: 90%;
-}
-
-.subTitle a {
-    color: #000054;
-    text-decoration: underline;
-    font-weight: bold;
+    margin: 0.25rem auto;
+    max-width: 95%;
 }
 
 .btn:hover {
@@ -176,77 +103,59 @@
     background-color: transparent;
 }
 
+.subTitle a {
+    color: #390000;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
 .carouselContainer :global(.ant-carousel) {
     width: 100%;
 }
 
-@media screen and (max-width: 1160px) {
-    .carouselContainer {
-        margin: 15px auto;
-    }
-
-    .slideOne, .slideTwo, .slideThree, .slideFour {
-        height: 60vh;
-    }
-
-    .textOverlay {
-        height: 60vh;
-    }
+.rsvpContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 1rem;
+    flex-wrap: wrap;
 }
 
 @media only screen and (max-width: 768px) {
+    .cardsContainer {
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+}
+
+/* Tablet and smaller desktops */
+@media screen and (max-width: 1024px) {
+    .carouselContainer {
+        margin: 15px auto;
+    }
+}
+
+/* Tablets */
+@media screen and (max-width: 768px) {
     .carouselContainer {
         margin: 10px auto;
         max-width: 95%;
     }
 
-    .slideOne, .slideTwo, .slideThree, .slideFour {
-        height: 55vh;
-        line-height: normal;
-    }
-
-    .textOverlay {
-        height: 55vh;
-    }
-
-    .slideTwo, .slideThree {
-        background-position: 40%;
-    }
-
-    .heading {
-        font-size: clamp(2rem, 6vw, 4rem);
-    }
-
     .subTitle {
-        font-size: clamp(1rem, 2vw, 1.5rem);
+        max-width: 90%;
     }
 }
 
-@media screen and (max-height: 820px) {
-    .slideOne, .slideTwo, .slideThree, .slideFour {
-        line-height: 5.5rem;
-        height: 50vh;
-    }
-
-    .textOverlay {
-        height: 50vh;
-    }
-}
-
+/* Mobile devices */
 @media screen and (max-width: 480px) {
     .carouselContainer {
         margin: 10px 5px;
     }
 
-    .slideOne, .slideTwo, .slideThree, .slideFour {
-        height: 45vh;
-    }
-
-    .textOverlay {
-        height: 45vh;
-    }
-
-    .heading {
-        margin: 0;
+    .subTitle {
+        max-width: 85%;
     }
 }
