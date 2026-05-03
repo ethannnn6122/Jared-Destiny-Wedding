@@ -1,18 +1,48 @@
-# React + Vite
+# Jared and Destiny Wedding Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite site built to celebrate and share wedding details for Jared and Destiny.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project is a lightweight, mobile-first wedding website developed with:
 
-## React Compiler
+- React for UI components
+- Vite for fast development and builds
+- CSS modules and scoped styles for component-level design
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+The site includes sections for:
 
-Note: This will impact Vite dev & build performances.
+- wedding details and schedule
+- RSVP submission
+- gift registry information
+- venue directions and event timeline
 
-## Expanding the ESLint configuration
+## Development Focus
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The goal of this site is to provide a welcoming, easy-to-use experience for guests and family, while keeping the design simple and elegant.
+
+Key development priorities:
+
+- fast local development with Vite hot module replacement
+- responsive layout for desktop and mobile
+- reusable React components for navigation, forms, and content sections
+- accessible interactions for RSVP and event details
+
+## Running the project
+
+Install dependencies and start the development server:
+
+```bash
+npm install
+npm run dev
+```
+
+Build the site for production:
+
+```bash
+npm run build
+```
+
+## Notes
+
+This repository is tailored for the Jared and Destiny wedding celebration, with a polished experience for sharing RSVP, venue, and registry details.
