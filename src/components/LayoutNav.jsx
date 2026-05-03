@@ -10,7 +10,7 @@ import {
 //Components
 import NavSider from './NavSider';
 import Footer from './Footer';
-// import ClockCount from "./ClockCount";
+import ClockCount from "./ClockCount";
 
 // Containers
 import HomeContainer from '../containers/HomeContainer';
@@ -20,12 +20,10 @@ import RsvpContainer from '../containers/RsvpContainer';
 
 const { Header } = Layout;
 
-// const { Countdown } = Statistic;
-
 class LayoutNav extends Component {
     state = {
         collapsed: false,
-        deadline: "DATE"
+        deadline: "January 22, 2027"
     };
     
     toggle = () => {
@@ -49,7 +47,7 @@ class LayoutNav extends Component {
                             className: classes.trigger,
                             onClick: this.toggle,
                             })}
-                            {/* <ClockCount deadline={this.state.deadline} /> */}
+                            <ClockCount className={classes.countdown} deadline={this.state.deadline} />
                         </Header>
                         <div style={{ flex: 1 }}>
                             <Routes>

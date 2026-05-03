@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, Button} from 'antd';
+import {Row, Button} from 'antd';
 import classes from './RsvpContainer.module.css';
 import { Link } from 'react-router-dom';
 
@@ -9,18 +9,16 @@ import Form from '../components/Form';
 class RsvpContainer extends Component {
     render() {
         return(
-            <>
-                <Card variant='borderless'>
-                    <div className={classes.titleWrapper}>
-                        <h5>RSVP</h5>
-                        <p className={classes.subText}>Check out the details page to see the menu options.</p>
-                        <Link to={"/details"}>
-                            <Button className={classes.btnClass} type="ghost">Details</Button>
-                        </Link>
-                    </div>
-                    <Form /> 
-                </Card> 
-            </>
+            <Row className={classes.rsvpContainer}>
+                <div className={classes.titleWrapper}>
+                    <h5>RSVP</h5>
+                    <p className={classes.subText}>Check out the details page to see the menu options.</p>
+                    <Link to={"/details"}>
+                        <Button className={classes.btnClass} type="ghost">Details</Button>
+                    </Link>
+                </div>
+                <Form /> 
+            </Row> 
         )
     }
 }

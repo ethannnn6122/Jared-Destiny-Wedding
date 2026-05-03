@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
-const Clock = ({ deadline }) => {
+const Clock = ({ deadline, className }) => {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -25,14 +25,21 @@ const Clock = ({ deadline }) => {
     }
   };
 
-  useEffect(() => {
-    setInterval(() => getTimeUntil(deadline), 1000);
+  const intervalRef = useRef(null);
 
-    return () => getTimeUntil(deadline);
+  useEffect(() => {
+    getTimeUntil(deadline);
+    intervalRef.current = setInterval(() => getTimeUntil(deadline), 1000);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
   }, [deadline]);
 
   return (
-    <div  style={{  position: "absolute", top: "0px", right: "0px" }}>
+    <div className={className}>
         {leading0(days)} Days : {leading0(hours)} Hours : {leading0(minutes)} Minutes : {leading0(seconds)} Seconds
     </div>
   );

@@ -1,14 +1,19 @@
 .guestForm {
-    background-color: #FFDCDC;
+    background-color: #C4C5A0;
     padding: 1rem;
     border-radius: 1rem;
     min-width: 10rem;
     margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 .formWrapper {
     margin-top: 1.5rem;
-    width: 80%;
+    width: 40%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -16,6 +21,11 @@
 @media only screen and (max-width: 768px) {
     .formWrapper {
         width: 100%;
+    }
+
+    .guestForm {
+        justify-content: flex-start;
+        gap: 0.5rem;
     }
 }
 

@@ -1,4 +1,23 @@
-.amznRegistry {
+.giftContainer {
+    background-color: #F1F0EA;
+}
+
+.centerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    flex-wrap: wrap;
+    height: 100vh;
+    align-items: center;
+}
+
+.centerContainer:last-of-type {
+    margin-top: auto;
+}
+
+
+/* .amznRegistry {
     background-image: url("../images/amznRegistryImg.png");
     height: 30vh;
     background-position: center;
@@ -14,4 +33,4 @@
     background-repeat: no-repeat;
     margin-bottom: 0.5rem;
     margin-top: 1rem;
-}
+} */

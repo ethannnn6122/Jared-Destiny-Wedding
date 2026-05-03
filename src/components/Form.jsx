@@ -59,7 +59,7 @@ const RSVPForm = () => {
             setModalText("Something went wrong. Please try again or contact us directly.");
             toggleModal();
         } finally {
-            setSubmitting(false); // Stop loading regardless of success/fail
+            setSubmitting(false);
         }
     };
 
@@ -99,67 +99,64 @@ const RSVPForm = () => {
                 <Input placeholder='Type a contact email address.' />
             </Form.Item>
 
-            <Form.List name="inputs">
-                {(fields, { add, remove }) => (
-                    <>
-                        {fields.map(({ key, name, ...restField }) => (
-                            <Space key={key} className={classes.guestForm} align="baseline" wrap>
-                                <MinusCircleOutlined onClick={() => remove(name)} />
-                                <Form.Item
-                                    {...restField}
-                                    label="First Name"
-                                    name={[name, 'first']}
-                                    rules={[{ required: true, message: 'Missing first name' }]}
-                                >
-                                    <Input placeholder="First Name" />
-                                </Form.Item>
-                                <Form.Item
-                                    {...restField}
-                                    label="Last Name"
-                                    name={[name, 'last']}
-                                    rules={[{ required: true, message: 'Missing last name' }]}
-                                >
-                                    <Input placeholder="Last Name" />
-                                </Form.Item>
-                                
-                                <Form.Item
-                                    {...restField}
-                                    label="Preferred Meal"
-                                    name={[name, 'meal']}
-                                    rules={[{ required: !attendField, message: 'Missing Meal Selection' }]}
-                                >
-                                    <Radio.Group disabled={attendField}>
-                                        <Space vertical>
-                                            <Radio value="Chicken">Chicken</Radio>
-                                            <Radio value="Steak">Steak</Radio>
-                                            <Radio value="Vegetarian">Vegetarian</Radio>
-                                        </Space>
-                                    </Radio.Group>
-                                </Form.Item>
+            <Form.Item
+                rules={[
+                    {
+                        validator: (_, inputs) => {
+                            if (!inputs || inputs.length === 0) {
+                                return Promise.reject('At least one guest with first and last name is required');
+                            }
+                            const hasValidGuest = inputs.some(guest => guest?.first && guest?.last);
+                            if (!hasValidGuest) {
+                                return Promise.reject('At least one guest with first and last name is required');
+                            }
+                            return Promise.resolve();
+                        }
+                    }
+                ]}
+                name="inputs"
+            >
+                <Form.List name="inputs">
+                    {(fields, { add, remove }) => (
+                        <>
+                            {fields.map(({ key, name, ...restField }) => (
+                                <div key={key} className={classes.guestForm}>
+                                    <MinusCircleOutlined onClick={() => remove(name)} />
+                                    <Space align="baseline" wrap>
+                                        <Form.Item
+                                            {...restField}
+                                            label="First Name"
+                                            name={[name, 'first']}
+                                            rules={[{ required: true, message: 'Missing first name' }]}
+                                        >
+                                            <Input placeholder="First Name" />
+                                        </Form.Item>
+                                        <Form.Item
+                                            {...restField}
+                                            label="Last Name"
+                                            name={[name, 'last']}
+                                            rules={[{ required: true, message: 'Missing last name' }]}
+                                        >
+                                            <Input placeholder="Last Name" />
+                                        </Form.Item>
+                                    </Space>
+                                </div>
+                            ))}
 
-                                <Form.Item 
-                                    label="Allergies" 
-                                    {...restField} 
-                                    name={[name, 'allergies']}
+                            <Form.Item>
+                                <Button
+                                    disabled={fields.length >= 2}
+                                    type="dashed"
+                                    onClick={() => add()}
+                                    icon={<PlusOutlined />}
                                 >
-                                    <Input.TextArea disabled={attendField} placeholder='List any allergies here' />
-                                </Form.Item>
-                            </Space>
-                        ))}
-
-                        <Form.Item>
-                            <Button
-                                disabled={fields.length >= 3}
-                                type="dashed"
-                                onClick={() => add()}
-                                icon={<PlusOutlined />}
-                            >
-                                Add Guest
-                            </Button>
-                        </Form.Item>
-                    </>
-                )}
-            </Form.List>
+                                    Add Guest
+                                </Button>
+                            </Form.Item>
+                        </>
+                    )}
+                </Form.List>
+            </Form.Item>
 
             <Form.Item>
                 <Button type="primary" htmlType="submit" loading={submitting}>

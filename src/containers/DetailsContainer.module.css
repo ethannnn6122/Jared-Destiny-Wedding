@@ -1,12 +1,12 @@
 .bannerImg {
     height: 45vh;
-    background-image: url("https://images.unsplash.com/photo-1519225421980-715cb0215aed");
+    background-image: url("../assets/slideFour.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     font-size: 4rem;
-    color: #000054;
-    text-shadow: 2px 2px 4px #DECB85;
+    color: #390000;
+    text-shadow: 2px 2px 4px #F1F0EA;
     font-family: 'Mea Culpa', cursive;
     padding: 2rem;
     display: flex;
@@ -30,11 +30,12 @@
     padding: 2rem 1rem;
     gap: 1rem;
     flex-wrap: wrap;
+    background-color: #F1F0EA;
 }
 
 .venueCard {
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
 }
 
 .iframeWrapper {

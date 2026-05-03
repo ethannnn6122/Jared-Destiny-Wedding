@@ -1,106 +1,77 @@
-.carouselContainer {
-    max-width: 1200px;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
 .textOverlay {
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     z-index: 1;
     padding: 1.5rem;
     overflow: hidden;
 }
 
-.slideOne,
-.slideTwo,
-.slideThree,
-.slideFour {
-    height: clamp(45vh, 65vh, 100vh);
-    font-size: 3rem;
-    font-family: 'Mea Culpa', cursive;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-}
-
-.slideOne {
+.landingImage {
+    width: 100%;
+    min-height: 100vh;
+    object-fit: cover;
     background-image: url('../assets/SlideOne.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
 }
 
-.slideTwo {
-    background-image: url('../assets/SlideTwo.jpg');
+.centerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    flex-wrap: wrap;
 }
 
-.slideThree {
-    background-image: url('../assets/SlideThree.jpg');
-}
-
-.slideFour {
-    background-image: url('../assets/SlideFour.jpg');
-}
-
-.slideOne::before,
-.slideTwo::before,
-.slideThree::before,
-.slideFour::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.15);
-    z-index: 0;
+.centerContainer:last-of-type {
+    margin-top: auto;
 }
 
 .heading {
-    font-size: clamp(1.75rem, 5vw, 4rem);
-    margin: 0.5rem 0;
-    letter-spacing: 2px;
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin: 1.5rem 0;
+    letter-spacing: 1px;
     color: #390000;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 8px rgba(241, 240, 234, 0.8);
 }
 
 .btn {
     color: #390000;
-    font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
     font-family: 'Josefin Sans', sans-serif;
     text-shadow: 2px 2px 4px #DECB85;
     margin: 0.5rem auto;
-    padding: 0.5rem 1rem;
-    display: inline-block !important;
+    padding: 0.75rem 1.5rem;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
     border: 2px solid #390000 !important;
     background-color: rgba(255, 255, 255, 0.85) !important;
     text-decoration: none;
     white-space: nowrap;
+    line-height: 1;
+}
+
+.btn:hover {
+    color: #DECB85 !important;
+    text-shadow: 2px 2px 4px #390000;
+    background-color: transparent;
 }
 
 .subTitle {
     font-family: 'Josefin Sans', sans-serif;
-    padding: 0.25rem 0.5rem;
+    padding: 1.75rem 1.5rem;
     color: #390000;
-    font-size: clamp(1rem, 2vw, 1.75rem);
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    font-size: clamp(1.25rem, 2.5vw, 3rem);
+    text-shadow: 2px 2px 8px rgba(241, 240, 234, 0.8);
     margin: 0.25rem auto;
     max-width: 95%;
-}
-
-.btn:hover {
-    color: #DECB85;
-    background-color: transparent;
 }
 
 .subTitle a {
@@ -109,41 +80,21 @@
     font-weight: bold;
 }
 
-.carouselContainer :global(.ant-carousel) {
-    width: 100%;
-}
-
-.rsvpContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 2rem 1rem;
-    flex-wrap: wrap;
-}
-
-@media only screen and (max-width: 768px) {
-    .cardsContainer {
-        padding: 1rem;
-        gap: 0.5rem;
+/* Tablets */@media screen and (max-width: 768px) {
+    .subTitle {
+        max-width: 90%;
     }
 }
 
-/* Tablet and smaller desktops */
-@media screen and (max-width: 1024px) {
-    .carouselContainer {
-        margin: 15px auto;
+@media screen and (max-width: 580px) {
+    .btn {
+        font-size: 1.25rem;
+        width: auto;
+        padding: 0.75rem 1.25rem;
+        margin: 1rem auto 0;
     }
 }
-
-/* Tablets */
 @media screen and (max-width: 768px) {
-    .carouselContainer {
-        margin: 10px auto;
-        max-width: 95%;
-    }
-
     .subTitle {
         max-width: 90%;
     }
@@ -151,10 +102,6 @@
 
 /* Mobile devices */
 @media screen and (max-width: 480px) {
-    .carouselContainer {
-        margin: 10px 5px;
-    }
-
     .subTitle {
         max-width: 85%;
     }

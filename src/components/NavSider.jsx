@@ -45,10 +45,8 @@ const NavSider = (props) => {
       <Menu 
         className={classes.navItems} 
         mode="inline"
-        // 2. Reference the top-level variable here
         defaultSelectedKeys={[location.pathname]}
         selectedKeys={[location.pathname]}
-        // 3. Use the new 'items' prop instead of rendering <Menu.Item> children
         items={menuItems} 
       />
     </Sider>
