@@ -16,7 +16,7 @@ const HomeContainer = () => {
             </Row>
             <Row className={classes.centerContainer} justify="center">
                 <Link to={linkPath}>
-                    <Button className={classes.btn} type="ghost">
+                    <Button className={classes.btn}>
                         RSVP Now
                     </Button>
                 </Link>
