@@ -1,6 +1,6 @@
 body {
   overflow-x: hidden;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Pinyon Script', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ant-menu-item a {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Pinyon Script', sans-serif;
 }
 
 .ant-menu-item:hover,
@@ -50,6 +50,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ant-statistic-content-value {
-  font-family: 'Josefin Sans', sans-serif !important; 
+  font-family: 'Pinyon Script', sans-serif !important; 
   color: #390000 !important;
 }

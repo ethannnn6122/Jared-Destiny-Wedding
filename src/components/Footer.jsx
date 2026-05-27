@@ -8,7 +8,7 @@ const FooterComp = () => {
         <Footer style={{
             textAlign: "center", 
             background: "#C4C5A0", 
-            fontFamily: "Josefin Sans, sans-serif",
+            fontFamily: "Pinyon Script, sans-serif",
         }}>
             Jared & Destiny's Wedding | &copy; 2026 | Designed and Developed by&nbsp;
             <a href="https://milehighcoding.com" target="_blank" rel="noopener noreferrer">

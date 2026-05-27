@@ -13,9 +13,17 @@ const HomeContainer = () => {
                 </div>
             </Row>
             <Row className={classes.centerContainer} justify="center">
+<<<<<<< HEAD
                 <Button className={classes.btn} type="ghost" href="#rsvp">
                     RSVP Now
                 </Button>
+=======
+                <Link to={linkPath}>
+                    <Button className={classes.btn}>
+                        RSVP Now
+                    </Button>
+                </Link>
+>>>>>>> fe1257a3cf4fe820137da3dc685d77bf68075b6e
             </Row>
         </div>
     );
