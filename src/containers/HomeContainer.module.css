@@ -64,6 +64,30 @@
     background-color: transparent;
 }
 
+.quickLinks {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem 0 2rem;
+}
+
+.anchorButton {
+    color: #390000;
+    border: 2px solid #390000;
+    border-radius: 1rem;
+    padding: 0.85rem 1.5rem;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.85);
+    font-family: 'Josefin Sans', sans-serif;
+    transition: all 0.25s ease;
+}
+
+.anchorButton:hover {
+    background-color: #C4C5A0;
+    color: #390000;
+}
+
 .subTitle {
     font-family: 'Josefin Sans', sans-serif;
     padding: 1.75rem 1.5rem;

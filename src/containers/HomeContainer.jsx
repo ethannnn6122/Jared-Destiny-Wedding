@@ -1,11 +1,9 @@
 import React from 'react';
-import {Button, Card, Row } from 'antd';
-import { Link } from 'react-router-dom';
+import { Button, Row } from 'antd';
 
 import classes from './HomeContainer.module.css';
 
 const HomeContainer = () => {
-    const linkPath = "/rsvp";
     return (
         <div className={classes.landingImage}>
             <Row className={classes.centerContainer} justify="center">
@@ -15,11 +13,9 @@ const HomeContainer = () => {
                 </div>
             </Row>
             <Row className={classes.centerContainer} justify="center">
-                <Link to={linkPath}>
-                    <Button className={classes.btn} type="ghost">
-                        RSVP Now
-                    </Button>
-                </Link>
+                <Button className={classes.btn} type="ghost" href="#rsvp">
+                    RSVP Now
+                </Button>
             </Row>
         </div>
     );

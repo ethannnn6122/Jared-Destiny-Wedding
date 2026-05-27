@@ -3,12 +3,10 @@ import { Form, Input, Button, Space, Select, Radio } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import classes from './Form.module.css';
-import { useNavigate } from 'react-router-dom';
 import ModalCustom from './ModalCustom';
 
 const RSVPForm = () => {
     const [form] = Form.useForm();
-    const navigate = useNavigate();
 
     // Modal & Loading State
     const [modalVis, setModalVis] = useState(false);
@@ -23,7 +21,7 @@ const RSVPForm = () => {
         setModalText('You will now be redirected to the home page.');
         setConfirmLoading(true);
         setTimeout(() => {
-            navigate("/", { replace: true });
+            window.location.hash = '#home';
             setModalVis(false);
             setConfirmLoading(false);
         }, 2000);

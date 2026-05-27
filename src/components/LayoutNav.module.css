@@ -1,29 +1,99 @@
-.trigger {
-    padding: 0 200rem 0 0;
-    font-size: 1.3rem;
-    line-height: 1rem; 
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.trigger:hover {
-    color: #580410;
-}
-
 .siteLayoutBackground {
     background: #C4C5A0;
-    padding-left: 1rem;
-}
-
-.countdown {
-    position: absolute;
-    right: 0;
+    padding: 0 1rem;
+    position: sticky;
     top: 0;
-    padding: 0 1.5rem 1.2rem 0;
+    z-index: 50;
 }
 
-@media only screen and (max-width: 580px) {
-    .trigger {
+.headerInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 72px;
+    gap: 1rem;
+}
+
+.brand {
+    color: #390000;
+    font-family: 'Mea Culpa', cursive;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+}
+
+.navMenu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.navMenu a,
+.mobileNav a {
+    color: #390000;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1rem;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.navMenu a:hover,
+.mobileNav a:hover {
+    color: #75763E;
+    transform: translateY(-1px);
+}
+
+.mobileMenuButton {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    color: #390000;
+    cursor: pointer;
+}
+
+.mobileNav {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.mainContent {
+    scroll-behavior: smooth;
+}
+
+.sectionTop {
+    min-height: 100vh;
+}
+
+.section {
+    padding: 5rem 0;
+    background: #F1F0EA;
+}
+
+.detailsSection {
+    background: #C4C5A0;
+    padding: 3rem 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .navMenu {
         display: none;
     }
-  }
+
+    .mobileMenuButton {
+        display: block;
+    }
+
+    .mobileNav {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .section {
+        padding: 3rem 1.25rem;
+    }
+}
