@@ -40,7 +40,7 @@ class LayoutNav extends Component {
                     <Layout style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
                         <Header className={classes.siteLayoutBackground}>
                             <div className={classes.headerInner}>
-                                <div className={classes.brand}>J&D</div>
+                                {/* <div className={classes.brand}>J&D</div> */}
                                 <nav className={classes.navMenu}>
                                     <a href="#home" onClick={this.closeMobileMenu}>Home</a>
                                     <a href="#details" onClick={this.closeMobileMenu}>Details</a>

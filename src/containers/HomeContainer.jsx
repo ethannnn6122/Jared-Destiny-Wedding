@@ -13,11 +13,9 @@ const HomeContainer = () => {
                 </div>
             </Row>
             <Row className={classes.centerContainer} justify="center">
-                <Link to={linkPath}>
-                    <Button className={classes.btn}>
-                        RSVP Now
-                    </Button>
-                </Link>
+                <Button onClick={() => window.location.href = '#rsvp'} className={classes.btn}>
+                    RSVP Now
+                </Button> 
             </Row>
         </div>
     );
