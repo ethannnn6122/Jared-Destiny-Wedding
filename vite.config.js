@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
-  base: '/Jared-Destiny-Wedding/'
+  base: '/'
 })

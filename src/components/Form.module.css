@@ -1,11 +1,11 @@
 .guestForm {
-    background-color: #C4C5A0;
+    background-color: var(--bg-color);
     padding: 1rem;
     border-radius: 1rem;
     min-width: 10rem;
     margin-bottom: 2rem;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     gap: 1rem;

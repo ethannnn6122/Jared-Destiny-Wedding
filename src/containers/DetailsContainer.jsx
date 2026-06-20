@@ -31,12 +31,15 @@ class DetailsContainer extends Component {
         return (
             <div className={classes.detailsContainer}>
                 <div className={classes.bannerImg}>
-                    Wedding Details
+                    <h1>Wedding Details</h1>
                     <p className={classes.dateTime}>January 22 at ?:00pm</p>
+                    <div className={classes.countdownWrapper}>
+                        <ClockCount deadline="January 22, 2027" />
+                    </div>
                 </div>
                 <div className={classes.detailsContent}>
                     <Row className={classes.cardsContainer}>
-                        <Col span={24} className={classes.venueCard}>
+                        <Col>
                             <Card title="Options" variant="borderless">
                                 <Tabs 
                                     tabPlacement='left' 
@@ -56,17 +59,14 @@ class DetailsContainer extends Component {
                                 />                   
                             </Card>
                         </Col> 
-                    </Row>
-                    <div className={classes.countdownWrapper}>
-                        <ClockCount deadline="January 22, 2027" />
-                    </div>
-                    <Row className={classes.cardsContainer}>
-                        <Card title="Wedding Venue" className={classes.venueCard}>
-                            <div className={classes.iframeWrapper}>
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.9649418484732!2d-112.0058846!3d33.63215099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b7183e187cdeb%3A0xa89f219ede6eb957!2sBoojum%20Tree%20Hidden%20Gardens!5e0!3m2!1sen!2sus!4v1777435399408!5m2!1sen!2sus" loading="lazy"></iframe>
-                            </div>
-                            <p>16026 N 36th St, Phoenix, AZ 85032</p>
-                        </Card>
+                        <Col>
+                            <Card title="Wedding Venue" variant='borderless'>
+                                <div className={classes.iframeWrapper}>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.9649418484732!2d-112.0058846!3d33.63215099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b7183e187cdeb%3A0xa89f219ede6eb957!2sBoojum%20Tree%20Hidden%20Gardens!5e0!3m2!1sen!2sus!4v1777435399408!5m2!1sen!2sus" loading="lazy"></iframe>
+                                </div>
+                                <p>16026 N 36th St, Phoenix, AZ 85032</p>
+                            </Card>
+                        </Col>
                     </Row>
                 </div>
             </div>          

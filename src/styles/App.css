@@ -1,0 +1,49 @@
+@import url('./variables.css');
+
+body {
+  overflow-x: hidden;
+  font-family: var(--font-pinyon);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-pinyon);
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.ant-layout {
+  font-family: var(--font-mono);
+}
+
+
+.ant-menu-item:hover,
+.ant-menu-item a:hover{
+  color: var(--primary-color) !important;
+}
+
+.ant-btn-ghost {
+  border-color: var(--primary-color) !important;
+  border-radius: 1rem;
+  width: 250px;
+  height: 50px;
+  margin: 0 auto;
+  padding: 0;
+  display: inline-block;
+  line-height: 50px;
+  text-align: center;
+}
+
+.ant-btn-ghost:hover {
+  border-color: var(--accent-color) !important;
+}
+
+.ant-form {
+  padding: 0 2rem !important;
+  margin: auto;
+  width: 80%;
+}
+
+.ant-statistic-content-value {
+  font-family: var(--font-pinyon) !important; 
+  color: var(--primary-color) !important;
+}

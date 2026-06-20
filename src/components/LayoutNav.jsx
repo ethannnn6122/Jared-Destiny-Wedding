@@ -65,14 +65,14 @@ class LayoutNav extends Component {
                                 <section id="home" className={classes.sectionTop}>
                                     <HomeContainer />
                                 </section>
-                                <section id="details" className={`${classes.section} ${classes.detailsSection}`}>
-                                    <DetailsContainer />
+                                <section id="rsvp" className={classes.section}>
+                                    <RsvpContainer />
                                 </section>
                                 <section id="registry" className={classes.section}>
                                     <GiftRegistry />
                                 </section>
-                                <section id="rsvp" className={classes.section}>
-                                    <RsvpContainer />
+                                <section id="details" className={`${classes.section} ${classes.detailsSection}`}>
+                                    <DetailsContainer />
                                 </section>
                             </main>
                         </div>

@@ -4,25 +4,25 @@
 
 .bannerImg {
     width: 100%;
-    height: 45vh;
+    height: 65vh;
     background-image: url("../assets/slideFour.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     font-size: 4rem;
-    color: #390000;
+    color: var(--primary-color);
     text-shadow: 2px 2px 4px #F1F0EA;
-    font-family: 'Pinyon Script', sans-serif;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    border-radius: 2rem;
 }
 
 .detailsContent {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem 5rem;
 }
 
 .bannerImg {
@@ -49,12 +49,11 @@
     padding: 2rem 1rem;
     gap: 1rem;
     flex-wrap: wrap;
-    background-color: #F1F0EA;
 }
 
-.venueCard {
-    width: 100%;
-    max-width: 1000px;
+.cardsContainer > * {
+  flex: 1 1 45%; /* Two cards per row with 10% gap */
+  min-width: 250px; /* Prevent cards from shrinking too small */
 }
 
 .iframeWrapper {
@@ -80,13 +79,19 @@
     display: flex;
     justify-content: center;
     margin: 1.5rem 0;
-    padding: 1rem 0;
+    font-size: 2rem;
 }
 
 @media only screen and (max-width: 768px) {
     .listItemStyles {
         padding: 0;
     }
+    .cardsContainer {
+    flex-direction: column;
+    }
+    .cardsContainer > * {
+    flex: 1 1 100%; /* Ensure cards take full width on mobile */
+  }
 }
 
 @media only screen and (max-width: 1400px) {

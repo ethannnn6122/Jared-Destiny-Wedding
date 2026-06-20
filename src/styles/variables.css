@@ -1,0 +1,20 @@
+:root {
+  /* Fonts */
+  --font-pinyon: 'Pinyon Script', sans-serif;
+  --font-mono: ui-monospace, Consolas, monospace;
+
+  /* Colors */
+  --primary-color: #390000;
+  --accent-color: #C4C5A0;
+  --hover-color: #DECB85;
+  --bg-color: #F1F0EA;
+  --text-color: #6b6375;
+  --text-header-color: #08060d;
+  --border-color: #e5e4e7;
+  --opaque-border: rgba(255, 255, 255, 0.85);
+
+  /* Optional: Dark mode overrides */
+  --dark-bg: #16171d;
+  --dark-text: #9ca3af;
+  --dark-accent: #c084fc;
+}

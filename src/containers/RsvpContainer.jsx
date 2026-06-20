@@ -10,7 +10,7 @@ class RsvpContainer extends Component {
         return(
             <Row className={classes.rsvpContainer}>
                 <div className={classes.titleWrapper}>
-                    <h5>RSVP</h5>
+                    <h3>RSVP</h3>
                     <p className={classes.subText}>Check out the details page to see the menu options.</p>
                     <Button className={classes.btnClass} type="ghost" href="#details">Details</Button>
                 </div>
