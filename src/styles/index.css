@@ -22,9 +22,9 @@ h2 {
   }
 }
 
-p {
+p, span {
   margin: 0;
-  /* font-family: var(--font-pinyon); */
+  font-family: var(--font-mono);
 }
 
 code,

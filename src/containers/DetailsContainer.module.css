@@ -11,22 +11,17 @@
     background-size: cover;
     font-size: 4rem;
     color: var(--primary-color);
-    text-shadow: 2px 2px 4px #F1F0EA;
+    text-shadow: 2px 2px 4px var(--bg-color);
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border-radius: 2rem;
 }
 
 .detailsContent {
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.bannerImg {
-    margin-bottom: 2rem;
 }
 
 .detailsContainer .cardsContainer {
@@ -52,8 +47,11 @@
 }
 
 .cardsContainer > * {
-  flex: 1 1 45%; /* Two cards per row with 10% gap */
-  min-width: 250px; /* Prevent cards from shrinking too small */
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 45%;
+  min-width: 250px;
+  height: 100%;
 }
 
 .iframeWrapper {
