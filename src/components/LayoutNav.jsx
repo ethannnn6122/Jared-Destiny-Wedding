@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Layout } from 'antd';
 import classes from './LayoutNav.module.css';
 import {
@@ -18,6 +20,10 @@ import RsvpContainer from '../containers/RsvpContainer';
 const { Header } = Layout;
 
 class LayoutNav extends Component {
+    componentDidMount() {
+        AOS.init();
+    }
+
     state = {
         mobileMenuOpen: false,
         deadline: "January 22, 2027"
@@ -62,16 +68,16 @@ class LayoutNav extends Component {
                         </Header>
                         <div style={{ flex: 1 }}>
                             <main className={classes.mainContent}>
-                                <section id="home">
+                                <section id="home" data-aos="fade-up" data-aos-duration="1000">
                                     <HomeContainer />
                                 </section>
-                                <section id="rsvp">
+                                <section id="rsvp" data-aos="fade-up" data-aos-duration="1000">
                                     <RsvpContainer />
                                 </section>
-                                <section id="registry">
+                                <section id="registry" data-aos="fade-up" data-aos-duration="1000">
                                     <GiftRegistry />
                                 </section>
-                                <section id="details">
+                                <section id="details" data-aos="fade-up" data-aos-duration="1000">
                                     <DetailsContainer />
                                 </section>
                             </main>

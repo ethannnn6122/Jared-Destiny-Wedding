@@ -1,9 +1,20 @@
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
 .siteLayoutBackground {
     background: var(--accent-color);
     padding: 0 1rem;
     position: sticky;
     top: 0;
     z-index: 50;
+    transform: background 0.3s ease, padding 0.3s ease;
 }
 
 .headerInner {
@@ -39,7 +50,7 @@
 .navMenu a:hover,
 .mobileNav a:hover {
     color: var(--hover-color);
-    transform: translateY(-5px) scale(1.15);
+    transform: translateY(-3px) scale(1.05);
 }
 
 .mobileMenuButton {
@@ -59,10 +70,12 @@
     padding: 1rem;
     background: var(--accent-opaque);
     margin-left: -1rem;
+    animation: slideIn 0.4s ease-out;
 }
 
 .mainContent {
     scroll-behavior: smooth;
+    animation: fadeIn 0.9s ease-out;
 }
 
 .mainContent > section {
