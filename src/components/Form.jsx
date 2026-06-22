@@ -49,6 +49,7 @@ const RSVPForm = () => {
             if (response.data.result === 'success') {
                 setModalText("We've received your RSVP. We can't wait to see you!");
                 toggleModal();
+                form.resetFields();
             } else {
                 console.error("Script Error:", response.data.error);
             }
