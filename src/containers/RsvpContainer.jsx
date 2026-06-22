@@ -10,11 +10,13 @@ class RsvpContainer extends Component {
         return(
             <Row className={classes.rsvpContainer}>
                 <div className={classes.titleWrapper}>
-                    <h3>RSVP</h3>
-                    <p className={classes.subText}>Check out the details page to see the menu options.</p>
+                    <h1>RSVP</h1>
+                    <p className={classes.subText}>Check out the details page!</p>
                     <Button className={classes.btnClass} type="ghost" href="#details">Details</Button>
                 </div>
-                <Form /> 
+                <div className={classes.formContainer}>
+                    <Form /> 
+                </div>
             </Row> 
         )
     }

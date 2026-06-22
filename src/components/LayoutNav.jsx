@@ -62,22 +62,22 @@ class LayoutNav extends Component {
                         </Header>
                         <div style={{ flex: 1 }}>
                             <main className={classes.mainContent}>
-                                <section id="home" className={classes.sectionTop}>
+                                <section id="home">
                                     <HomeContainer />
                                 </section>
-                                <section id="rsvp" className={classes.section}>
+                                <section id="rsvp">
                                     <RsvpContainer />
                                 </section>
-                                <section id="registry" className={classes.section}>
+                                <section id="registry">
                                     <GiftRegistry />
                                 </section>
-                                <section id="details" className={`${classes.section} ${classes.detailsSection}`}>
+                                <section id="details">
                                     <DetailsContainer />
                                 </section>
                             </main>
                         </div>
-                        <Footer />
                     </Layout>
+                    <Footer />
                 </Layout>
             </>
         );

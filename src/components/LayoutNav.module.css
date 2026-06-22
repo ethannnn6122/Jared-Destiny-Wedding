@@ -33,12 +33,13 @@
     text-decoration: none;
     font-size: 1.25rem;
     transition: color 0.25s ease, transform 0.25s ease;
+    text-align: center;
 }
 
 .navMenu a:hover,
 .mobileNav a:hover {
     color: var(--hover-color);
-    transform: translateY(-1px);
+    transform: translateY(-5px) scale(1.15);
 }
 
 .mobileMenuButton {
@@ -52,11 +53,11 @@
 
 .mobileNav {
     display: none;
-    width: 25vw;
+    width: 35vw;
     height: 100vh;
     flex-direction: column;
     padding: 1rem;
-    background: var(--opaque-border);
+    background: var(--accent-opaque);
     margin-left: -1rem;
 }
 
@@ -64,15 +65,7 @@
     scroll-behavior: smooth;
 }
 
-.sectionTop {
-    min-height: 100vh;
-}
-
-.section {
-    background: var(--accent-color);
-}
-
-.detailsSection {
+.mainContent > section {
     background: var(--accent-color);
 }
 

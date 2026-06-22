@@ -140,34 +140,27 @@ const RSVPForm = () => {
                                     </Space>
                                 </div>
                             ))}
-
-                            <Form.Item>
+                            <Space className={classes.btns}>
                                 <Button
                                     disabled={fields.length >= 2}
-                                    type="dashed"
                                     onClick={() => add()}
                                     icon={<PlusOutlined />}
-                                >
-                                    Add Guest
+                                >Add Guest</Button>
+                                <Button type="primary" htmlType="submit" loading={submitting}>
+                                    Submit RSVP
                                 </Button>
-                            </Form.Item>
+                                <ModalCustom
+                                    isOpen={modalVis}
+                                    toggle={toggleModal}
+                                    confirmLoading={confirmLoading}
+                                    modalText={modalText}
+                                    handleOk={handleOk}
+                                    handleCancel={() => setModalVis(false)}
+                                />
+                            </Space>
                         </>
                     )}
                 </Form.List>
-            </Form.Item>
-
-            <Form.Item>
-                <Button type="primary" htmlType="submit" loading={submitting}>
-                    Submit RSVP
-                </Button>
-                <ModalCustom
-                    isOpen={modalVis}
-                    toggle={toggleModal}
-                    confirmLoading={confirmLoading}
-                    modalText={modalText}
-                    handleOk={handleOk}
-                    handleCancel={() => setModalVis(false)}
-                />
             </Form.Item>
         </Form>
     );
