@@ -9,7 +9,7 @@ h1 {
   font-size: 3.5rem;
   margin: 32px 0;
   @media (max-width: 1024px) {
-    font-size: 3;
+    font-size: 3rem;
     margin: 20px 0;
   }
 }
