@@ -1,13 +1,13 @@
 @font-face {
-    font-family: 'Pinyon Script';
-    src: url('../assets/fonts/PinyonScript-Regular.ttf') format('truetype');
+    font-family: 'Khatija Calligraphy';
+    src: url('../assets/fonts/Khatija Calligraphy.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
 
-/* @font-face {
-    font-family: 'Maellen Font';
-    src: url('../assets/fonts/MaellenFont.otf') format('opentype');
-    font-weight: 500;
+@font-face {
+    font-family: 'Baskervville SC';
+    src: url('../assets/fonts/BaskervvilleSC-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
     font-style: normal;
-} */
+}

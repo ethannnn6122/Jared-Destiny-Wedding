@@ -1,77 +1,92 @@
 .rsvpContainer {
-    background-color: var(--accent-color);
-    font-family: var(--font-mono);
+    padding: 5rem 1rem;
+    background-color: var(--page-base);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .titleWrapper {
-    height: 70vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
     text-align: center;
-    min-width: 10rem;
-    width: 100%;
-    background-image: url("../assets/SlideTwo.jpg");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    position: relative;
+    margin-bottom: 0;
+    max-width: 800px;
 }
 
-.titleWrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-}
-
-.titleWrapper > * {
-    position: relative;
-    z-index: 1;
+.titleWrapper h1 {
     color: var(--primary-color);
-    text-shadow: 2px 2px 6px var(--bg-color);
-}
-
-.formContainer {
-    background: var(--transparent-bg);
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
+    font-size: 3.5rem;
+    font-family: var(--font-pinyon), serif;
+    margin-bottom: 1rem;
 }
 
 .subText {
     font-size: 1.2rem;
     color: var(--primary-color);
-    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .btnClass {
-    color: var(--primary-color);
-    font-size: 2rem;
-    text-shadow: 2px 2px 4px var(--bg-color);
-    margin-top: 1rem;
+    background-color: var(--primary-color) !important;
+    color: var(--page-base) !important;
+    padding: 0.6rem 2rem !important;
+    height: auto !important;
+    font-size: 1.1rem !important;
+    border: none !important;
+    border-radius: 4px !important;
 }
 
-.btnClass:hover > span {
-    color: var(--hover-color);
-    background-color: transparent;
+.btnClass:hover {
+    background-color: var(--secondary-color) !important;
 }
 
+.btnClassSecondary {
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+    padding: 0.6rem 2rem !important;
+    height: auto !important;
+    font-size: 1.1rem !important;
+    border-radius: 4px !important;
+}
+
+.btnClassSecondary:hover {
+    border-color: var(--secondary-color) !important;
+    color: var(--secondary-color) !important;
+}
+
+.rsvpModal :global(.ant-modal-content) {
+    background: var(--warm-alabaster) !important;
+    border-radius: 16px !important;
+    padding: 2rem !important;
+    box-shadow: 0 10px 30px rgba(59, 10, 15, 0.15) !important;
+}
+
+.rsvpModal :global(.ant-modal-header) {
+    background: transparent !important;
+    border-bottom: none !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.rsvpModal :global(.ant-modal-title) {
+    color: var(--primary-color) !important;
+    font-size: 2rem !important;
+    font-family: var(--font-pinyon), serif;
+    text-align: center;
+}
 
 @media only screen and (max-width: 580px) {
-    .titleWrapper {
-        font-size: 2.2rem;
-        padding: 2rem 1rem;
-    }
-
-    .subText {
-        font-size: 1rem;
-    }
-
-    .btnClass {
-        font-size: 1.5rem;
-        width: 8rem;
+    .rsvpModal :global(.ant-modal-content) {
+        padding: 1rem !important;
     }
 }

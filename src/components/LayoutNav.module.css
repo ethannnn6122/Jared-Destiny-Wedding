@@ -8,78 +8,196 @@
     to { transform: translateX(0); opacity: 1; }
 }
 
+.heroSection {
+    width: 100vw;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('../assets/JD4-2.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.homeOverlay {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: 12vh 2rem 2rem 2rem;
+}
+
+.heading {
+    /* font-size: clamp(8rem, 8vw, 12rem); */
+    font-size: 15rem;
+    color:  var(--page-base);
+    margin-top: 5.5rem;
+    /* letter-spacing: 6px; */
+    font-weight: normal;
+    transform: rotate(-5deg);
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.destiny {
+    position: relative;
+    top: 0.3em;
+    font-family: var(--font-pinyon), serif; 
+}
+
+.jared {
+    position: relative;
+    top: -0.6em;
+    left: -0.15em;
+    font-family: var(--font-pinyon), serif; 
+}
+
+.ampersand {
+    /* font-family: var(--font-pinyon), serif; */
+    font-size: 3rem;
+    position: relative;
+    top: -1.5em;
+    left: 0.15em;
+    transform: rotate(5deg);
+}
+
+.subTitle {
+    color: #000;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: var(--font-mono);
+    margin: 0.5rem 0;
+    letter-spacing: 1px;
+    transform: rotate(-5deg);
+}
+
 .siteLayoutBackground {
-    background: var(--accent-color);
-    padding: 0 1rem;
-    position: sticky;
+    background: transparent;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+    padding: 0 2rem;
+    position: fixed;
     top: 0;
-    z-index: 50;
-    transform: background 0.3s ease, padding 0.3s ease;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: none;
+}
+
+.siteLayoutScrolled {
+    background: transparent;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .headerInner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    min-height: 4rem;
+    min-height: 4.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
 }
 
-.brand {
+.brandLink {
     color: var(--primary-color);
-    font-size: 1.6rem;
-    letter-spacing: 2px;
+    font-size: 1.8rem;
+    font-family: var(--font-pinyon), serif;
+    letter-spacing: 1px;
+    text-decoration: none;
+    position: absolute;
+    left: 0;
+}
+.brandLink:hover {
+    color: var(--secondary-color);
 }
 
 .navMenu {
     display: flex;
     align-items: center;
-    gap: 2rem;
-    flex: 1;
+    gap: 8rem;
     justify-content: center;
+    width: 100%;
 }
 
 .navMenu a,
 .mobileNav a {
     color: var(--primary-color);
     text-decoration: none;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: color 0.25s ease, transform 0.25s ease;
-    text-align: center;
+    position: relative;
+}
+
+.navMenu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    /* background-color: var(--secondary-color); */
+    transition: width 0.3s ease;
+}
+
+.navMenu a:hover::after {
+    width: 100%;
 }
 
 .navMenu a:hover,
 .mobileNav a:hover {
-    color: var(--hover-color);
-    transform: translateY(-3px) scale(1.05);
+    color: var(--secondary-color);
+    transform: translateY(-2px);
 }
 
 .mobileMenuButton {
     display: none;
     border: none;
     background: none;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--primary-color);
     cursor: pointer;
+    position: absolute;
+    right: 0;
 }
 
 .mobileNav {
     display: none;
-    width: 35vw;
-    height: 100vh;
+    position: fixed;
+    top: 4.5rem;
+    left: 0;
+    width: 100%;
+    /* background: var(--page-base); */
     flex-direction: column;
-    padding: 1rem;
-    background: var(--accent-opaque);
-    margin-left: -1rem;
-    animation: slideIn 0.4s ease-out;
+    padding: 2rem;
+    gap: 1.5rem;
+    box-shadow: 0 10px 20px rgba(59, 10, 15, 0.15);
+    border-bottom: 2px solid var(--secondary-color);
+    animation: slideIn 0.3s ease-out;
+    z-index: 999;
 }
 
 .mainContent {
     scroll-behavior: smooth;
     animation: fadeIn 0.9s ease-out;
+    background-color: var(--page-base);
 }
 
 .mainContent > section {
-    background: var(--accent-color);
+    min-height: 100vh;
+    padding: 5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
 }
 
 @media only screen and (max-width: 768px) {
@@ -94,4 +212,90 @@
     .mobileNav {
         display: flex;
     }
+}
+
+.rowSection {
+    min-height: 100vh;
+    padding: 5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.rowOne {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto !important;
+}
+
+.imageCol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgWrapper {
+    width: 100%;
+    max-width: 100vw;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.coupleImg {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.infoCol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.infoWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.infoWrapper h2 {
+    font-family: var(--font-pinyon), serif;
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.locationText {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.dateText {
+    font-size: 1.3rem;
+    color: #666;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.rsvpBtn {
+    margin-top: 1rem;
+    padding: 0 2.5rem;
+    height: 3rem;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    border-radius: 4px;
+}
+
+.rowContent {
+    text-align: center;
 }

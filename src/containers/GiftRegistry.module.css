@@ -1,7 +1,52 @@
-.centerContainer {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 50vh;
-    align-items: center;
+.registrySection {
+    padding: 5rem 1rem;
+    text-align: center;
+    background: var(--page-base);
+}
+
+.headerWrapper {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.heading {
+    color: var(--primary-color);
+    font-size: 3rem;
+    font-family: var(--font-pinyon), serif;
+    margin-bottom: 1rem;
+}
+
+.subTitle {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-family: var(--font-mono);
+}
+
+.cardsContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.registryCard {
+    background: var(--warm-alabaster) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    height: 100%;
+}
+
+.registryCard :global(.ant-card-head) {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}
+
+.registryBtn {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.5rem 0;
+}
+
+.registryBtn:hover {
+    background-color: var(--secondary-color) !important;
 }

@@ -1,0 +1,45 @@
+.faqContainer {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.faqCard {
+    width: 100%;
+    background-color: var(--primary-color) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(59, 10, 15, 0.15) !important;
+    padding: 2rem !important;
+}
+
+.faqCard :global(.ant-card-head) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.faqCard :global(.ant-card-head-title) {
+    color: var(--page-base) !important;
+    font-family: var(--font-pinyon), serif !important;
+    font-size: 3rem !important;
+    text-align: center;
+}
+
+.faqItem {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.faqItem h3 {
+    color: var(--page-base);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.faqItem p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.6;
+}
