@@ -223,6 +223,19 @@
     border-bottom: 1px solid var(--border-color);
 }
 
+.faqRowSection {
+    min-height: 100vh;
+    padding: 5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+    background-image: url('../assets/JD6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .rowOne {
     width: 100%;
     max-width: 1200px;

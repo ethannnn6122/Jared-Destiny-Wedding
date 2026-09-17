@@ -75,7 +75,8 @@ class LayoutNav extends Component {
                             <Header className={`${classes.siteLayoutBackground} ${this.state.scrolled ? classes.siteLayoutScrolled : ''}`}>
                                 <div className={classes.headerInner}>
                                     <nav className={classes.navMenu}>
-                                        <a href="#home" onClick={this.closeMobileMenu}>Home</a>
+                                        {/* <a href="#home" onClick={this.closeMobileMenu}>Home</a> */}
+                                        <a href="#faq" onClick={this.closeMobileMenu}>FAQ</a>
                                         <a href="#details" onClick={this.closeMobileMenu}>Details</a>
                                         <a href="#registry" onClick={this.closeMobileMenu}>Registry</a>
                                         <a href="#rsvp" onClick={this.closeMobileMenu}>RSVP</a>
@@ -86,7 +87,8 @@ class LayoutNav extends Component {
                                 </div>
                                 {this.state.mobileMenuOpen && (
                                     <div className={classes.mobileNav}>
-                                        <a href="#home" onClick={this.closeMobileMenu}>Home</a>
+                                        {/* <a href="#home" onClick={this.closeMobileMenu}>Home</a> */}
+                                        <a href="#faq" onClick={this.closeMobileMenu}>FAQ</a>
                                         <a href="#details" onClick={this.closeMobileMenu}>Details</a>
                                         <a href="#registry" onClick={this.closeMobileMenu}>Registry</a>
                                         <a href="#rsvp" onClick={this.closeMobileMenu}>RSVP</a>
@@ -124,10 +126,12 @@ class LayoutNav extends Component {
                                     </Row>
                                 </section>
                                 {/* Row 2 */}
-                                <section className={classes.rowSection} data-aos="fade-up" data-aos-duration="1000">
-                                    <div className={classes.rowContent}>
-                                        {/* One centered col with solid FAQ card element */}
-                                    </div>
+                                <section id="faq" className={classes.faqRowSection} data-aos="fade-up" data-aos-duration="1000">
+                                    <Row justify="center" align="stretch" className={classes.rowTwo} style={{ height: '100%' }}>
+                                        <Col xs={24} sm={22} md={18} lg={14} style={{ display: 'flex', flexDirection: 'column' }}>
+                                            <FaqContainer />
+                                        </Col>
+                                    </Row>
                                 </section>
 
                                 {/* Row 3: two columns. Left col Registry right col image: JD5.jpg */}

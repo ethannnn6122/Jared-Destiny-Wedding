@@ -1,17 +1,29 @@
 .faqContainer {
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+    height: 100%;
     display: flex;
     justify-content: center;
+    align-items: stretch;
+    min-height: calc(100vh - 10rem);
 }
 
 .faqCard {
     width: 100%;
-    background-color: var(--primary-color) !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f8f6eb81;
     border-radius: 12px !important;
     box-shadow: 0 10px 30px rgba(59, 10, 15, 0.15) !important;
     padding: 2rem !important;
+}
+
+.faqCard :global(.ant-card-body) {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .faqCard :global(.ant-card-head) {
@@ -19,9 +31,9 @@
 }
 
 .faqCard :global(.ant-card-head-title) {
-    color: var(--page-base) !important;
-    font-family: var(--font-pinyon), serif !important;
-    font-size: 3rem !important;
+    color: #000000 !important;
+    font-family: var(--font-mono) !important;
+    font-size: 2rem !important;
     text-align: center;
 }
 
@@ -31,14 +43,16 @@
 }
 
 .faqItem h3 {
-    color: var(--page-base);
+    color: #000000;
+    font-family: var(--font-mono);
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
 .faqItem p {
-    color: rgba(255, 255, 255, 0.85);
+    color: #000000;
+    font-family: var(--font-mono);
     font-size: 1rem;
     margin: 0;
     line-height: 1.6;
