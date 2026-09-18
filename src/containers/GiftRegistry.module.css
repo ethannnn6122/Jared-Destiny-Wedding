@@ -1,12 +1,12 @@
 .registrySection {
-    padding: 5rem 1rem;
+    padding: 2rem 1rem;
     text-align: center;
     background: var(--page-base);
 }
 
 .headerWrapper {
     max-width: 800px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 1.5rem;
 }
 
 .heading {

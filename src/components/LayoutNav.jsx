@@ -6,6 +6,7 @@ import classes from './LayoutNav.module.css';
 import {
     MenuOutlined,
     CloseOutlined,
+    ArrowUpOutlined,
 } from '@ant-design/icons';
 
 // Components
@@ -28,6 +29,7 @@ class LayoutNav extends Component {
         mobileMenuOpen: false,
         deadline: "January 22, 2027",
         scrolled: false,
+        showScrollTop: false,
         isModalVisible: false
     };
 
@@ -46,6 +48,20 @@ class LayoutNav extends Component {
         } else {
             this.setState({ scrolled: false });
         }
+
+        // Show scroll to top button if scrolled past the hero section / header (e.g. > 400px)
+        if (window.scrollY > 400) {
+            this.setState({ showScrollTop: true });
+        } else {
+            this.setState({ showScrollTop: false });
+        }
+    };
+
+    scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     };
     
     toggle = () => {
@@ -75,11 +91,10 @@ class LayoutNav extends Component {
                             <Header className={`${classes.siteLayoutBackground} ${this.state.scrolled ? classes.siteLayoutScrolled : ''}`}>
                                 <div className={classes.headerInner}>
                                     <nav className={classes.navMenu}>
-                                        {/* <a href="#home" onClick={this.closeMobileMenu}>Home</a> */}
-                                        <a href="#faq" onClick={this.closeMobileMenu}>FAQ</a>
-                                        <a href="#details" onClick={this.closeMobileMenu}>Details</a>
-                                        <a href="#registry" onClick={this.closeMobileMenu}>Registry</a>
                                         <a href="#rsvp" onClick={this.closeMobileMenu}>RSVP</a>
+                                        <a href="#faq" onClick={this.closeMobileMenu}>FAQ</a>
+                                        <a href="#registry" onClick={this.closeMobileMenu}>Registry</a>
+                                        <a href="#details" onClick={this.closeMobileMenu}>Details</a>
                                     </nav>
                                     <button className={classes.mobileMenuButton} onClick={this.toggle}>
                                         {React.createElement(this.state.mobileMenuOpen ? CloseOutlined : MenuOutlined)}
@@ -87,11 +102,10 @@ class LayoutNav extends Component {
                                 </div>
                                 {this.state.mobileMenuOpen && (
                                     <div className={classes.mobileNav}>
-                                        {/* <a href="#home" onClick={this.closeMobileMenu}>Home</a> */}
-                                        <a href="#faq" onClick={this.closeMobileMenu}>FAQ</a>
-                                        <a href="#details" onClick={this.closeMobileMenu}>Details</a>
-                                        <a href="#registry" onClick={this.closeMobileMenu}>Registry</a>
                                         <a href="#rsvp" onClick={this.closeMobileMenu}>RSVP</a>
+                                        <a href="#faq" onClick={this.closeMobileMenu}>FAQ</a>
+                                        <a href="#registry" onClick={this.closeMobileMenu}>Registry</a>
+                                        <a href="#details" onClick={this.closeMobileMenu}>Details</a>
                                     </div>
                                 )}
                             </Header>
@@ -136,20 +150,32 @@ class LayoutNav extends Component {
 
                                 {/* Row 3: two columns. Left col Registry right col image: JD5.jpg */}
                                 <section id="registry" className={classes.rowSection} data-aos="fade-up" data-aos-duration="1000">
-                                    <GiftRegistry />
+                                    <Row gutter={[32, 32]} align="middle" justify="center" className={classes.rowOne}>
+                                        <Col xs={24} md={12} className={classes.registryCol}>
+                                            <GiftRegistry />
+                                        </Col>
+                                        <Col xs={24} md={12} className={classes.imageCol}>
+                                            <div className={classes.imgWrapper}>
+                                                <img src={jd5} alt="Destiny and Jared" className={classes.coupleImg} />
+                                            </div>
+                                        </Col>
+                                    </Row>
                                 </section>
 
                                 {/* Row 4: one centered col with JD2.jpg background image and the wedding countdown going across in large font */}
-                                <section id="details" className={classes.rowSection} data-aos="fade-up" data-aos-duration="1000">
-                                    <DetailsContainer />
+                                <section id="details" className={classes.rowFourSection} data-aos="fade-up" data-aos-duration="1000">
+                                    <Row justify="center" align="middle" style={{ width: '100%', height: '100%' }}>
+                                        <Col xs={24} sm={24} md={22} lg={20} className={classes.rowFourCol}>
+                                            <ClockCount deadline={this.state.deadline} className={classes.largeClock} />
+                                        </Col>
+                                    </Row>
                                 </section>
-
                                 <Modal
                                     title="RSVP for Wedding"
                                     open={this.state.isModalVisible}
                                     onCancel={this.handleCancel}
                                     footer={null}
-                                    destroyOnClose
+                                    destroyOnHidden
                                     width={700}
                                 >
                                     <Form />
@@ -158,6 +184,15 @@ class LayoutNav extends Component {
                         </div>
                     </Layout>
                     <Footer />
+                    {this.state.showScrollTop && (
+                        <button 
+                            className={classes.scrollTopButton} 
+                            onClick={this.scrollToTop}
+                            aria-label="Scroll to top"
+                        >
+                            <ArrowUpOutlined />
+                        </button>
+                    )}
                 </Layout>
             </>
         );

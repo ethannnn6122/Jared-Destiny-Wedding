@@ -32,7 +32,7 @@
 
 .heading {
     /* font-size: clamp(8rem, 8vw, 12rem); */
-    font-size: 15rem;
+    font-size: clamp(4.5rem, 12vw, 15rem);
     color:  var(--page-base);
     margin-top: 5.5rem;
     /* letter-spacing: 6px; */
@@ -58,7 +58,6 @@
 }
 
 .ampersand {
-    /* font-family: var(--font-pinyon), serif; */
     font-size: 3rem;
     position: relative;
     top: -1.5em;
@@ -129,7 +128,7 @@
 .mobileNav a {
     color: var(--primary-color);
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -172,15 +171,14 @@
 .mobileNav {
     display: none;
     position: fixed;
-    top: 4.5rem;
+    top: 4rem;
     left: 0;
     width: 100%;
-    /* background: var(--page-base); */
+    background: var(--page-base);
     flex-direction: column;
     padding: 2rem;
     gap: 1.5rem;
     box-shadow: 0 10px 20px rgba(59, 10, 15, 0.15);
-    border-bottom: 2px solid var(--secondary-color);
     animation: slideIn 0.3s ease-out;
     z-index: 999;
 }
@@ -211,6 +209,21 @@
 
     .mobileNav {
         display: flex;
+    }
+
+    .siteLayoutBackground {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(5px);
+    }
+
+    .ampersand {
+        position: relative;
+        top: -1em;
+        left: 0.15em;
+    }
+
+    .infoWrapper h2 {
+        font-size: 2rem !important;
     }
 }
 
@@ -311,4 +324,61 @@
 
 .rowContent {
     text-align: center;
+}
+
+.rowFourSection {
+    min-height: 100vh;
+    padding: 5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/JD2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.rowFourCol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.largeClock {
+    font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+    font-weight: bold;
+    color: #ffffff;
+    font-family: var(--font-mono, monospace);
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.scrollTopButton {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background-color: var(--primary-color, #3b0a0f);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.3s ease;
+}
+
+.scrollTopButton:hover {
+    background-color: var(--secondary-color, #7a1c24);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }

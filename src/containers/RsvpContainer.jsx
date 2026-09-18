@@ -39,7 +39,7 @@ class RsvpContainer extends Component {
                     open={this.state.isModalVisible}
                     onCancel={this.handleCancel}
                     footer={null}
-                    destroyOnClose
+                    destroyOnHidden
                     width={700}
                     className={classes.rsvpModal}
                 >
